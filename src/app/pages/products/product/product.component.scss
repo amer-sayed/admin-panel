@@ -1,0 +1,47 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+
+  ::ng-deep agm-map {
+    width: 100%;
+    height: nb-theme(card-height-large);
+  }
+}
+
+
+.avatar  {
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.info p span {
+    font-weight: bold;
+}
+
+
+.charts {
+  padding-top: 97px;
+  padding-bottom: 85px;
+}
+
+
+.update { 
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.update .edite{ 
+  display: inline;
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 7px;
+}
+
+.update .delete{ 
+  display: inline;
+  font-size: 30px;
+}

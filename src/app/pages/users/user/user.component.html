@@ -1,0 +1,42 @@
+<div class="steppers-container row">
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card>
+            <nb-card-body>
+             <div class="col-md-12">
+                <div class="avatar">
+                    <div class="update">
+                        <div class="edite">
+                            <i (click)="edite()" class="nb-edit"></i>
+                        </div>
+                        <div class="delete">
+                            <i (click)="delete()" class="nb-trash"></i>
+                        </div>
+                    </div>
+                 <img class="img-fluid" src="assets/images/avatar-exemple.jpg" alt="avatar">
+                </div>
+             </div>
+            <div class="col-md-12">
+                <div class="info">
+                <p><span>Name : </span>{{ name }}</p>
+                <p><span>Email : </span>{{ email }}</p>
+                <p><span>Phone : </span>{{ phone }}</p>
+                <p><span>adress : </span>{{ adress }}</p>
+                <p><span>maps : </span><a href="https://goo.gl/maps/{{ maps }}">maps</a></p>
+                <p><span>not : </span>{{ not }}</p>
+                </div>
+             </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card>
+            <nb-card-body>  
+                <div class="charts">
+                <ngx-echarts-pie></ngx-echarts-pie>
+            </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>     
+
+
