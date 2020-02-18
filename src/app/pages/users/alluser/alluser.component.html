@@ -1,0 +1,94 @@
+
+
+<!-- add categori button --->
+<div class="add">
+    <button (click)="openWindow(contentTemplate)" nbButton>+ Add User</button>
+</div>
+
+<!-- end add categori button --->
+
+
+<!-- categori add form (window) --->
+
+<ng-template #contentTemplate let-data>
+    <nb-card>
+        <nb-card-body>
+          <form [formGroup]="angForm" (ngSubmit)="addUser()">
+            <div class="form-group">
+              <input formControlName="name" required type="text" nbInput fullWidth placeholder="Name">
+            </div>
+            <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].touched)" class="alert alert-danger">
+              الا سم مطلوب
+            </div>
+
+            <div class="form-group">
+              <input formControlName="email" type="text" nbInput fullWidth placeholder="Email" >
+            </div>
+            <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].touched)" class="alert alert-danger">
+              الايميل مطلوب
+            </div>
+
+
+            <div class="form-group">
+              <input formControlName="phone" type="text" nbInput fullWidth placeholder="Phone" >
+            </div>
+            <div *ngIf="angForm.controls['phone'].invalid && (angForm.controls['phone'].touched)" class="alert alert-danger">
+              
+            </div>
+
+            
+            <div class="form-group">
+              <input formControlName="password"  type="password" nbInput fullWidth placeholder="Password" >
+            </div>
+            <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].touched)" class="alert alert-danger">
+              الا سم مطلوب
+            </div>
+
+            <div class="form-group">
+              <input formControlName="adress" type="test" nbInput fullWidth placeholder="adress">
+            </div>
+            <div *ngIf="angForm.controls['adress'].invalid && (angForm.controls['adress'].touched)" class="alert alert-danger">
+              الا سم مطلوب
+            </div>
+
+            <div class="form-group">
+              <input formControlName="maps" type="test" nbInput fullWidth placeholder="maps link">
+            </div>
+            <div *ngIf="angForm.controls['maps'].invalid && (angForm.controls['maps'].touched)" class="alert alert-danger">
+              الا سم مطلوب
+            </div>
+
+            <div class="form-group">
+              <input formControlName="not" type="test" nbInput fullWidth placeholder="not link">
+            </div>
+
+
+            <div class="form-group">
+              <input  type="file" nbInput fullWidth #fileupload  (change)="fileEvent($event)" placeholder="Subject">
+            </div>  
+            <div class="form-group">
+              <nb-checkbox status="danger">User group</nb-checkbox>
+            </div>
+            <button [disabled]="!angForm.valid" type="submit" nbButton status="success">Save</button>
+          </form>
+        </nb-card-body>          
+      </nb-card>   
+</ng-template>
+  <nb-card>
+    <nb-card-header>
+      Smart Table
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table 
+      [settings]="settings"
+      [source]="source"
+      (deleteConfirm)="onDeleteConfirm($event)"
+      (editConfirm) = "onEditeConfirm($event)" 
+      >
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+
+
+ 

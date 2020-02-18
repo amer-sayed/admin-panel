@@ -1,0 +1,67 @@
+
+<!-- add categori button --->
+<div class="add">
+    <button (click)="openWindow(contentTemplate)" nbButton>+ Add Categori</button>
+</div>
+
+<!-- end add categori button --->
+
+
+<!-- categori add form (window) --->
+
+<ng-template #contentTemplate let-data>
+    <nb-card>
+        <nb-card-body>
+          <form [formGroup]="angForm" (ngSubmit)="addCategori()">
+            <div class="form-group">
+              <input  formControlName="name" type="text" nbInput fullWidth placeholder="Categori Name" >
+            </div>
+            <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].touched)" class="alert alert-danger">
+              الا سم مطلوب
+            </div>
+            <div class="form-group">
+              <textarea formControlName="message" nbInput fullWidth placeholder="Message"></textarea>
+            </div>
+            <div *ngIf="angForm.controls['message'].invalid && (angForm.controls['message'].touched)" class="alert alert-danger">
+              الرسالة مطلوبة
+              </div>
+            <div class="form-group">
+                <nb-select formControlName="parent_id" fullWidth selected="0">
+                  <nb-option value="0">NO Parent</nb-option>
+                  <nb-option *ngFor="let cat of cats" value="{{ cat.id }}">{{ cat.name }}</nb-option>
+                </nb-select>
+              </div>
+            <div class="form-group">
+              <input type="file" nbInput fullWidth #fileupload  (change)="fileEvent($event)" placeholder="Subject">
+            </div>
+            <button  type="submit" 
+            [disabled]="!angForm.valid" 
+            type="submit" nbButton status="success">Save</button> 
+          </form>
+        </nb-card-body> 
+      </nb-card>   
+  </ng-template>
+
+<!-- end categori add form --->
+
+
+<!-- all categori table --->
+<nb-card>
+    <nb-card-header>
+      Smart Table
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table 
+      [settings]="settings" 
+      [source]="source" 
+      (deleteConfirm)="onDeleteConfirm($event)"
+      (editConfirm) = "onEditeConfirm($event)"
+      >
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  
+<!-- end all categori table --->
+
+

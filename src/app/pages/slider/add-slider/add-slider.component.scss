@@ -1,0 +1,79 @@
+@import '../../../@theme/styles/themes';
+:host {
+  
+  @include nb-rtl(padding-right, 1em);
+}
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+
+
+@include nb-install-component() {
+  button + button {
+    margin-left: 2rem;
+  }
+
+  @include media-breakpoint-down(xxl) {
+    nb-card-body {
+      display: flex;
+    }
+
+    button {
+      flex: 1;
+      padding: 0.8rem;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    nb-card-body {
+      display: block;
+    }
+
+    button {
+      + button {
+        margin-left: 0;
+        color: red!important;
+      }
+
+      width: 100%;
+      display: block;
+      margin-bottom: 2rem;
+      padding: 0.75rem;
+    }
+  }
+}
+
+nb-checkbox {
+  margin-bottom: 1rem;
+}
+
+.form-inline [fullWidth] {
+  flex: 1;
+}
+
+.form-inline > * {
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+nb-card.inline-form-card nb-card-body {
+  padding-bottom: 0;
+}
+
+.add{
+  display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+} 
+
+
+.cat-img img {
+  width: 100px;
+}

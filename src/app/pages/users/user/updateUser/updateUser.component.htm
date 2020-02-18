@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-lg-12">
+      <nb-card>
+        <nb-card-header>Default Inputs</nb-card-header>
+        <nb-card-body>
+      <form [formGroup]="angForm" (ngSubmit)="updateUser()">
+        <div class="row">
+        <div class="col-md-4 m-b">
+          <label for="">Name</label>
+          <input formControlName="name" type="text" nbInput fullWidth placeholder="Name">
+        </div>
+        <div class="col-md-4 m-b">
+          <label for="">Email</label>
+          <input formControlName="email" type="text" nbInput fullWidth placeholder="Email">
+        </div>
+          <div class="col-md-4 m-b">
+            <label for="">Phone</label>
+          <input formControlName="phone" type="text" nbInput fullWidth placeholder="Phone">
+        </div>
+          <div class="col-md-4">
+            <label for="">Adress</label>
+          <input formControlName="adress" type="text" nbInput fullWidth placeholder="Adress">
+        </div>
+      
+      <div class="col-md-4">
+        <label for="">Maps</label>
+          <input formControlName="maps" type="text" nbInput fullWidth placeholder="Maps">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="">Image</label>
+          <input  type="file" nbInput fullWidth #fileupload  (change)="fileEvent($event)" placeholder="Subject">
+        </div> 
+      </div>
+           <label for="">Not</label>
+          <textarea formControlName="not" rows="3" nbInput fullWidth  placeholder="Not"></textarea>
+          <button  [disabled]="!angForm.valid" type="submit" nbButton status="success">Save</button>
+        </form>
+        </nb-card-body>
+      </nb-card>
+    </div>     
+    <div class="col-lg-12">
+        <nb-card>
+          <nb-card-header>change Password</nb-card-header>
+          <nb-card-body>
+              <form>
+                <div class="form-group">
+                  <input nbInput fullWidth type="password" name="pass" [(ngModel)]="password">
+                </div>
+                <button type="submit" nbButton status="success" (click)="changePassword()">Change</button>
+              </form>
+          </nb-card-body>
+        </nb-card>
+      </div>  
+ </div> 
